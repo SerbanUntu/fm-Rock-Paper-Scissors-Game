@@ -9,7 +9,19 @@ export default {
     "./error.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'barlow': ["'Barlow Semi Condensed'", "sans-serif"],
+      },
+      backgroundImage: {
+        'bg': "radial-gradient(circle at top, #1f3756, #141539)",
+      },
+      colors: {
+        'dark': '#3b4363',
+        'score': '#2a46c0',
+        'header-outline': '#606e85',
+      }
+    },
   },
   plugins: [],
 };

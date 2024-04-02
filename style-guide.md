@@ -13,21 +13,21 @@ The designs were created to the following widths:
 
 ### Primary
 
-- Scissors Gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%)
-- Paper Gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%)
-- Rock Gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%)
-- Lizard Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%)
-- Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%)
+- Scissors Gradient: #ec9e0e to #eca922
+- Paper Gradient: #4865f4 to #5671f5
+- Rock Gradient: #dc2e4e to #dd405d
+- Lizard Gradient: #834fe3 to #8c5de5
+- Cyan: #40b9ce to #52bed1
 
 ### Neutral
 
-- Dark Text: hsl(229, 25%, 31%)
-- Score Text: hsl(229, 64%, 46%)
-- Header Outline: hsl(217, 16%, 45%)
+- Dark Text: #3b4363
+- Score Text: #2a46c0
+- Header Outline: #606e85
 
 ### Background
 
-- Radial Gradient: hsl(214, 47%, 23%) to hsl(237, 49%, 15%)
+- Radial Gradient: #1f3756 to #141539
 
 ## Fonts
 
