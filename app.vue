@@ -1,5 +1,6 @@
 <script setup>
 const plays = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
+const showModal = ref(false)
 let score = 12
 </script>
 
@@ -14,8 +15,9 @@ let score = 12
         <h1 class="text-dark uppercase overflow-hidden text-ellipsis whitespace-nowrap w-full text-center">{{ score }}</h1>
       </section>
     </header>
-    Rules
-
+    <Pentagon />
+    <button class="absolute bottom-8 right-[calc(50%_-_4rem)] md:right-8 border-2 border-white w-32 h-10 uppercase rounded-lg tracking-widest flex items-center justify-center" @click="showModal = true">Rules</button>
+    <Modal v-show="showModal" @close="showModal = false" />
     You Picked
     The House Picked
 

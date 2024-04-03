@@ -16,7 +16,7 @@
 
 @layer base {
   html {
-    @apply font-barlow font-semibold text-white select-none text-[16px];
+    @apply font-barlow font-semibold text-white select-none text-[16px] overflow-hidden;
   }
 
   h1 {
