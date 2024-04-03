@@ -16,11 +16,15 @@
 
 @layer base {
   html {
-    @apply font-barlow font-semibold text-white select-none text-[16px] overflow-hidden;
+    @apply font-barlow font-semibold text-white select-none text-[16px] uppercase overflow-hidden;
   }
 
   h1 {
     @apply font-bold text-6xl leading-[1];
+  }
+
+  h2 {
+    @apply text-xl leading-[1] tracking-widest;
   }
 
   h3 {
