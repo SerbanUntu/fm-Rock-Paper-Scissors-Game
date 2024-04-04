@@ -31,7 +31,7 @@ Users are able to:
 
 ### Links
 
-- [Solution]()
+- [Solution](https://www.frontendmentor.io/solutions/bonus-rock-paper-scissors-game-with-tailwind-wgivkgi_SZ)
 - [Live Site](https://fm-rock-paper-scissors-game.vercel.app/)
 
 ## My process
