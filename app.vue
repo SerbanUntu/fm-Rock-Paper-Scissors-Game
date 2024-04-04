@@ -70,40 +70,50 @@ function getEndMessage() {
       <section>
         <h3 v-for="play in plays">{{ play }}</h3>
       </section>
-      <section class="flex flex-col bg-white rounded-md w-36 h-28 items-center justify-center">
-        <p class="text-score tracking-[2px]">Score</p>
+      <section class="flex flex-col bg-white rounded-md w-24 h-20 lg:w-36 lg:h-28 items-center justify-center">
+        <p class="text-score tracking-[2px] text-[12px] lg:text-[16px]">Score</p>
         <h1 class="text-dark overflow-hidden text-ellipsis whitespace-nowrap w-full text-center">{{ totalScore }}</h1>
       </section>
     </header>
     <button
-      class="absolute bottom-8 right-[calc(50%_-_4rem)] md:right-8 border-2 border-white w-32 h-10 rounded-lg tracking-widest uppercase flex items-center justify-center"
+      class="absolute bottom-8 right-[calc(50%_-_4rem)] lg:right-8 border-2 border-white w-[128px] h-[48px] rounded-lg text-[16px] tracking-widest uppercase flex items-center justify-center"
       @click="showModal = true">Rules</button>
-    <div class="flex flex-row">
-      <Play v-if="step === 1" v-for="play in plays" :variant="play" @click="{
+    <section v-if="step === 1" class="flex flex-row scale-75 lg:scale-100">
+      <Play v-for="play in plays" :variant="play" @click="{
           playerPlay = play;
           computerChoose();
         }" />
-    </div>
-    <div class="flex flex-row gap-10 items-center">
-      <div v-if="step > 1" class="flex flex-col items-center gap-16">
-        <h2>You Picked</h2>
-        <Play class="scale-[2] m-24" :variant="playerPlay" cursor="default" :class="{
+    </section>
+    <section class="flex flex-row gap-10 items-center">
+      <article class="flex lg:flex-col flex-col-reverse items-center gap-8 lg:gap-16">
+        <h2 v-if="step > 1">You Picked</h2>
+        <Play class="lg:m-24" :variant="playerPlay" cursor="default" :class="{
+          'scale-1 lg:scale-[2] duration-300': step > 1,
+          'duration-0 scale-0': step === 1,
           'shadow-win': step === 4 && roundResult === 1
         }" />
-      </div>
-      <div v-if="step === 4" class="flex flex-col items-center gap-4">
-        <h1 v-if="step === 4">{{ getEndMessage() }}</h1>
-        <button v-if="step === 4" class="uppercase tracking-[2px] text-dark bg-white py-2 w-full rounded-lg"
+      </article>
+      <article v-if="step === 4" class="hidden lg:flex flex-col items-center gap-4">
+        <h1 class="text-6xl whitespace-nowrap">{{ getEndMessage() }}</h1>
+        <button class="uppercase tracking-[2px] text-dark bg-white py-2 w-full rounded-lg whitespace-nowrap"
           @click="step = 1">Play Again</button>
-      </div>
-      <div v-if="step > 1" class="flex flex-col items-center gap-16">
-        <h2>The House Picked</h2>
-        <Play class="scale-[2] m-24" :variant="computerPlay" cursor="default" :class="{
-          'invisible': step === 2, 'visible': step === 3,
+      </article>
+      <article class="flex lg:flex-col flex-col-reverse items-center gap-8 lg:gap-16 relative">
+        <h2 v-if="step > 1">The House Picked</h2>
+        <figure v-if="step === 2" class="bg-black bg-opacity-30 rounded-full w-28 h-28 m-4 lg:scale-[2] lg:m-28" />
+        <Play class="lg:m-24 transition-all" :variant="computerPlay" cursor="default" :class="{
+          'scale-1 lg:scale-[2] relative duration-300': step > 2,
+          'duration-0': step === 1,
+          'scale-0 absolute': step <= 2,
           'shadow-win': step === 4 && roundResult === -1
         }" />
-      </div>
-    </div>
+      </article>
+    </section>
+    <article v-if="step === 4" class="flex lg:hidden flex-col items-center gap-4">
+      <h1 class="text-6xl whitespace-nowrap">{{ getEndMessage() }}</h1>
+      <button class="uppercase tracking-[2px] text-dark bg-white py-2 w-full rounded-lg whitespace-nowrap text-lg"
+        @click="step = 1">Play Again</button>
+    </article>
     <Modal v-show="showModal" @close="showModal = false" />
   </main>
 </template>

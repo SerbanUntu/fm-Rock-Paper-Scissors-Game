@@ -20,14 +20,14 @@
   }
 
   h1 {
-    @apply font-bold text-6xl leading-[1];
+    @apply font-bold text-5xl lg:text-6xl leading-[1];
   }
 
   h2 {
-    @apply text-xl leading-[1] tracking-widest;
+    @apply text-lg lg:text-xl leading-[1] tracking-widest;
   }
 
   h3 {
-    @apply font-bold text-3xl leading-[0.75];
+    @apply font-bold lg:text-3xl leading-[0.75] lg:leading-[0.75];
   }
 }
