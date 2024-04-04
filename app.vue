@@ -78,11 +78,18 @@ function getEndMessage() {
     <button
       class="absolute bottom-8 right-[calc(50%_-_4rem)] lg:right-8 border-2 border-white w-[128px] h-[48px] rounded-lg text-[16px] tracking-widest uppercase flex items-center justify-center"
       @click="showModal = true">Rules</button>
-    <section v-if="step === 1" class="flex flex-row scale-75 lg:scale-100">
-      <Play v-for="play in plays" :variant="play" @click="{
+    <section v-if="step === 1" class="relative scale-75 lg:scale-100 flex items-center justify-center p-20 shrink-0">
+      <Play v-for="play in plays" class="absolute" :variant="play" @click="{
           playerPlay = play;
           computerChoose();
+        }" :class="{
+          'top-0 left-[calc(50%-4.5rem)]': play === 'scissors',
+          'right-0 top-[135px]': play === 'paper',
+          'bottom-0 right-[60px]': play === 'rock',
+          'bottom-0 left-[60px]': play === 'lizard',
+          'left-0 top-[135px]': play === 'spock',
         }" />
+      <img class="shrink-0 min-w-[329px] min-h-[313px]" src="/public/images/bg-pentagon.svg" alt="Plays are arranged in a pentagon" />
     </section>
     <section class="flex flex-row gap-10 items-center">
       <article class="flex lg:flex-col flex-col-reverse items-center gap-8 lg:gap-16">
